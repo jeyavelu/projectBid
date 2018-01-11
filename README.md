@@ -38,28 +38,23 @@ HATEOAS plugin for REST resources
 # REST APIs exposed in this POC
 
 
-1. List of all projects
-
+List of all projects
 GET - http://localhost:8008/intuit/demo/projects
 
 
-2. List of all open projects
-
+List of all open projects
 GET - http://localhost:8008/intuit/demo/projects?status=O
 
 
-3. List of all closed projects
-
+List of all closed projects
 GET - http://localhost:8008/intuit/demo/projects?status=C
 
 
-4. Get Project Details by Project ID
-
+Get Project Details by Project ID
 GET - http://localhost:8008/intuit/demo/projects/1001
 
 
-5. Create a new Project
-
+Create a new Project
 POST - http://localhost:8008/intuit/demo/projects
 
 {
@@ -71,8 +66,7 @@ POST - http://localhost:8008/intuit/demo/projects
 }
 
 
-6. Create a new Bid for a project
-
+Create a new Bid for a project
 POST - http://localhost:8008/intuit/demo/projects/1004/bids
 
 {
@@ -81,8 +75,7 @@ POST - http://localhost:8008/intuit/demo/projects/1004/bids
 }	
 
 
-7. Get all Bids for a given project
-
+Get all Bids for a given project
 GET - http://localhost:8008/intuit/demo/projects/1004/bids
 
 
@@ -93,42 +86,4 @@ GET - http://localhost:8008/intuit/demo/projects/1004/bids
 2. Bids - Redis Hash and Sorted Set (ZSet) has been used to store bids. ZSet stores list of bid Ids sorted by lowest bid amount first.
 
 3. HATEOAS plugin is used to compose action links for a given resource. Links are dynamically rendered based on state of a given REST resource. For eg). "Create Bid" link will be available only for Projects with Open status
-	Sample GET all projects response
- 	{
-            "projectId": "1001",
-            "status": "C",
-            "title": "Hello World Project",
-            "maxBudget": 10000,
-            "targetDate": "2018-01-12 06:01:36 AM GMT",
-            "sellerId": "100",
-            "lowestBid": null,
-            "description": "Implement Hello World using Spring Boot",
-            "createdDate": "2018-01-11 06:01:36 AM GMT",
-            "links": [
-                {
-                    "rel": "self",
-                    "href": "http://localhost:8008/intuit/demo/projects/1001"
-                }
-            ]
-        },
-        {
-            "projectId": "1004",
-            "status": "O",
-            "title": "Django Project",
-            "maxBudget": 6000,
-            "targetDate": "2018-01-14 06:01:36 AM GMT",
-            "sellerId": "101",
-            "lowestBid": null,
-            "description": "Implement Demo App using Django",
-            "createdDate": "2018-01-11 06:01:36 AM GMT",
-            "links": [
-                {
-                    "rel": "self",
-                    "href": "http://localhost:8008/intuit/demo/projects/1004"
-                },
-                {
-                    "rel": "Create Bid",
-                    "href": "http://localhost:8008/intuit/demo/projects/1004/bids"
-                }
-            ]
-        }
+	
