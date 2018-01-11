@@ -38,23 +38,23 @@ HATEOAS plugin for REST resources
 # REST APIs exposed in this POC
 
 
-List of all projects
+1. List of all projects
 GET - http://localhost:8008/intuit/demo/projects
 
 
-List of all open projects
+2. List of all open projects
 GET - http://localhost:8008/intuit/demo/projects?status=O
 
 
-List of all closed projects
+3. List of all closed projects
 GET - http://localhost:8008/intuit/demo/projects?status=C
 
 
-Get Project Details by Project ID
+4. Get Project Details by Project ID
 GET - http://localhost:8008/intuit/demo/projects/1001
 
 
-Create a new Project
+5. Create a new Project
 POST - http://localhost:8008/intuit/demo/projects
 
 {
@@ -66,7 +66,7 @@ POST - http://localhost:8008/intuit/demo/projects
 }
 
 
-Create a new Bid for a project
+6. Create a new Bid for a project
 POST - http://localhost:8008/intuit/demo/projects/1004/bids
 
 {
@@ -75,7 +75,7 @@ POST - http://localhost:8008/intuit/demo/projects/1004/bids
 }	
 
 
-Get all Bids for a given project
+7. Get all Bids for a given project
 GET - http://localhost:8008/intuit/demo/projects/1004/bids
 
 
