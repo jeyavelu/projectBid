@@ -1,5 +1,17 @@
 # ProjectBid Application
-Project Bid - demo
+This is a Spring Boot application with Jersey based implementation of REST services. APIs are exposed to create and view projects and bids.
+
+# How to run this demo project
+1. Unzip the file "With Redis Cache.zip" to your local folder. You should see projectbid-0.0.1-SNAPSHOT.jar inside the folder.
+
+2. Go to the current folder and execute this command from CMD prompt
+java -jar projectbid-0.0.1-SNAPSHOT.jar
+
+3. This Spring Boot project has an embedded REDIS server added as plugin. If you are running from windows machine. you wil be prompted
+with a dialog window to grant permission to execute redis-server-2.8.19.exe file. Please click yes and proceed.
+
+4. Sample Requests and Responses of all APIs used in this demo project is available in the file "Request_Response_Sample.txt"
+
 
 # POC Assumptions
  Creation of User profiles (buyer/seller) are out of scope
