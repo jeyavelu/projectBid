@@ -1,0 +1,188 @@
+
+********************************************************************************
+1. List of all projects
+
+GET - http://localhost:8008/intuit/demo/projects
+
+{
+    "links": [
+        {
+            "rel": "list",
+            "href": "http://localhost:8008/intuit/demo/projects"
+        }
+    ],
+    "content": [
+        {
+            "projectId": "1003",
+            "status": "C",
+            "title": "Node JS Project",
+            "maxBudget": 6000,
+            "targetDate": "2018-01-12 06:01:36 AM GMT",
+            "sellerId": "100",
+            "lowestBid": null,
+            "description": "Implement Sample Project by Node JS",
+            "createdDate": "2018-01-11 06:01:36 AM GMT",
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "http://localhost:8008/intuit/demo/projects/1003"
+                }
+            ]
+        },
+        {
+            "projectId": "1002",
+            "status": "O",
+            "title": "Spring MVC Project",
+            "maxBudget": 2000,
+            "targetDate": "2018-01-13 06:01:36 AM GMT",
+            "sellerId": "101",
+            "lowestBid": null,
+            "description": "Implement Demo App using Spring MVC",
+            "createdDate": "2018-01-11 06:01:36 AM GMT",
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "http://localhost:8008/intuit/demo/projects/1002"
+                },
+                {
+                    "rel": "Create Bid",
+                    "href": "http://localhost:8008/intuit/demo/projects/1002/bids"
+                }
+            ]
+        }
+    ]
+}
+
+********************************************************************************
+
+2. List of all open projects
+GET - http://localhost:8008/intuit/demo/projects?status=O
+
+********************************************************************************
+
+3. List of all closed projects
+GET - http://localhost:8008/intuit/demo/projects?status=C
+
+********************************************************************************
+
+4. Get Project Details by Project ID
+GET - http://localhost:8008/intuit/demo/projects/1002
+
+{
+    "projectId": "1002",
+    "status": "O",
+    "title": "Spring MVC Project",
+    "maxBudget": 2000,
+    "targetDate": "2018-01-13 07:12:48 AM GMT",
+    "sellerId": "101",
+    "lowestBid": {
+        "bidId": "100005",
+        "projectId": "1002",
+        "bidAmount": 1000,
+        "buyerId": "1805",
+        "createdDate": "2018-01-11 07:16:55 AM GMT"
+    },
+    "description": "Implement Demo App using Spring MVC",
+    "createdDate": "2018-01-11 07:12:48 AM GMT",
+    "links": [
+        {
+            "rel": "self",
+            "href": "http://localhost:8008/intuit/demo/projects/1002"
+        },
+        {
+            "rel": "Create Bid",
+            "href": "http://localhost:8008/intuit/demo/projects/1002/bids"
+        }
+    ]
+}
+
+********************************************************************************
+
+5. Create a new Project
+POST - http://localhost:8008/intuit/demo/projects
+
+Request
+{
+	"title":"Create new project",
+	"description":"Create new desc",
+	"sellerId":"105",
+	"maxBudget":9999,
+	"targetDate": "2018-01-12 08:00:20 AM GMT"
+}
+
+
+Response
+{
+    "projectId": "1005",
+    "status": "O",
+    "title": "Create new project",
+    "maxBudget": 9999,
+    "targetDate": "2018-01-12 08:00:20 AM GMT",
+    "sellerId": "105",
+    "lowestBid": null,
+    "description": "Create new desc",
+    "createdDate": "2018-01-11 06:02:04 AM GMT",
+    "links": [
+        {
+            "rel": "self",
+            "href": "http://localhost:8008/intuit/demo/projects/1005"
+        },
+        {
+            "rel": "Create Bid",
+            "href": "http://localhost:8008/intuit/demo/projects/1005/bids"
+        }
+    ]
+}
+
+********************************************************************************
+
+6. Create a new Bid for a project
+POST - http://localhost:8008/intuit/demo/projects/1004/bids
+
+Request
+{
+	"buyerId":"1805",
+	"bidAmount":1000
+}	
+
+Response
+{
+    "bidId": "100005",
+    "projectId": "1002",
+    "bidAmount": 1000,
+    "buyerId": "1805",
+    "createdDate": "2018-01-11 07:16:55 AM GMT"
+}
+
+********************************************************************************
+
+
+7. Get all Bids for a given project
+GET - http://localhost:8008/intuit/demo/projects/1004/bids
+
+{
+    "links": [
+        {
+            "rel": "Create Bid",
+            "href": "http://localhost:8008/intuit/demo/projects/1004/bids"
+        }
+    ],
+    "content": [
+        {
+            "bidId": "100005",
+            "projectId": "1004",
+            "bidAmount": 100,
+            "buyerId": "805",
+            "createdDate": "2018-01-11 06:02:07 AM GMT"
+        },
+        {
+            "bidId": "100006",
+            "projectId": "1004",
+            "bidAmount": 1000,
+            "buyerId": "1805",
+            "createdDate": "2018-01-11 06:02:20 AM GMT"
+        }
+    ]
+}
+
+********************************************************************************
