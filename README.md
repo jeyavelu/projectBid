@@ -10,7 +10,9 @@ java -jar projectbid-0.0.1-SNAPSHOT.jar
 3. This Spring Boot project has an embedded REDIS server added as plugin. If you are running from windows machine. you wil be prompted
 with a dialog window to grant permission to execute redis-server-2.8.19.exe file. Please click yes and proceed.
 
-4. Sample Requests and Responses of all APIs used in this demo project is available in the file "Request_Response_Sample.txt"
+4. This project is configured to run at custom port# 8008 with base URL as http://localhost:8008/intuit/demo
+
+5. Sample Requests and Responses of all APIs used in this demo project is available in the file "Request_Response_Sample.txt"
 
 
 # POC Assumptions
